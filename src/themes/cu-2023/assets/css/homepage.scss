@@ -1,0 +1,77 @@
+@import "colors";
+
+h2{
+	margin-top: 12%;
+}
+
+hr.divider{
+	border: none;
+	border-radius: 2px;
+	background-color: $primary-color;
+	width: 55%;
+	height: 5px;
+
+	&.small{
+		width: 15%;
+	}
+}
+
+p{
+	margin-top: 25px;
+}
+
+ul{
+	padding: 0;
+	list-style: none;
+}
+
+body{
+}
+
+main.single{
+	margin: 0 20%;
+	padding-top: 8%;
+	text-align: center;
+	font-size: 2.0rem;
+}
+
+#description{
+	margin-left: 25%;
+	margin-right: 25%;
+}
+
+
+
+/************************************************
+ * <= 1000px width
+ * *********************************************/
+@media(max-width: 1000px){
+}
+
+
+/************************************************
+ * <= 850px width
+ * *********************************************/
+@media(max-width: 850px){
+}
+
+
+/************************************************
+ * <= 750px width
+ * *********************************************/
+@media(max-width: 750px){
+	#description{
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+}
+
+
+/************************************************
+ * <= 600px width
+ * *********************************************/
+@media(max-width: 600px){
+	main.single{
+		margin: 0 8px !important;
+	}
+}

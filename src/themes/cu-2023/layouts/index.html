@@ -1,0 +1,16 @@
+{{- define "main" }}
+<main class="single">
+	<h1>Welcome to Cloud Unpacked</h1>
+	<hr class="divider small">
+	<p id="description">{{ .Site.Params.Description }}</p>
+	</div>
+	<div id="panel-3" class="panel">
+		<h2>Recent Blog Posts</h2>
+		<ul>
+		{{ range first 5 (where .Site.RegularPages.ByDate.Reverse ".Section" "blog") }}
+			<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+		{{ end }}
+		</ul>
+	</div>
+</main>
+{{ end }}

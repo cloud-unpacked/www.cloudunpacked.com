@@ -1,0 +1,13 @@
+<header>
+	<nav>
+		<ul class="menu h social">
+			<li class="site-title"><a href="/">{{ .Site.Title }}</a></li>
+		{{ range .Site.Menus.social }}
+			<li><a href="{{ .URL }}" rel="me" target="_blank"><i class="fab fa-{{ .Name }}"></i></a></li>
+		{{ end }}
+		</ul>
+		{{ partial "menu.html" (dict "menuID" "main" "page" . "aria" true) }}
+		{{ partial "menu.html" (dict "menuID" "main" "page" . "aria" false) }}
+		<span class="toggle"><i class="fas fa-bars" aria-haspopup="menu" aria-controls="main-menu" aria-expanded="false"></i></span>
+	</nav>
+</header>

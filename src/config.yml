@@ -1,0 +1,40 @@
+baseurl: "https://www.cloudunpacked.com/"
+title: "Cloud Unpacked"
+languageCode: "en-us"
+theme: "cu-2023"
+
+googleAnalytics: ""
+
+enableEmoji: true
+
+params:
+  description: "Love homelabs, Raspberry Pis, or developer-focused cloud providers like Linode and DigitalOcean? So do we."
+
+blackfriday:
+  hrefTargetBlank:	true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: 'nord'
+    lineNos: true
+    lineNumbersInTable: true
+
+menu:
+  main:
+  - name: "Home"
+    url: "/"
+    weight: -1
+  - name: "Blog"
+    url: "/blog/"
+    weight: 5
+
+  social:
+  - name: "github"
+    url: "https://github.com/cloud-unpacked"
+    weight: 10
+  - name: "mastodon"
+    url: "https://nanobyte.cafe/@CloudUnpacked"
+    weight: 20
