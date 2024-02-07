@@ -42,7 +42,7 @@ workflows:
           registry: "ghcr.io"
           image: "ghcr.io/cloud-unpacked/www.cloudunpacked.com"
           remote-docker-version: "20.10.24"
-          tag: "$CIRCLE_SHA1,<< pipeline.git.branch >>,<< pipeline.number >>"
+          tag: "$CIRCLE_SHA1,<< pipeline.git.branch >>,<< pipeline.number >>,latest"
           requires:
             - sb/build
           filters:
@@ -64,7 +64,7 @@ jobs:
     steps:
       - k8s/install-kubeconfig
       - k8s/install-kubectl:
-          kubectl-version: "v1.27.6"
+          kubectl-version: "v1.28.6"
       - run:
           name: "Deploy"
-          command: kubectl set image --namespace=cloud-unpacked deployment/website website=ghcr.io/cloud-unpacked/www.cloudunpacked.com:$CIRCLE_SHA1
+          command: kubectl set image --namespace=cloud-unpacked deployment/website-prod website=ghcr.io/cloud-unpacked/www.cloudunpacked.com:$CIRCLE_SHA1
