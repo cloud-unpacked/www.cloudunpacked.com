@@ -2,18 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: cloud-unpacked
-  name: website
+  name: website-prod
   labels:
-    app: website
+    app: website-prod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: website
+      app: website-prod
   template:
     metadata:
       labels:
-        app: website
+        app: website-prod
     spec:
       containers:
       - name: website
@@ -25,13 +25,13 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: cloud-unpacked
-  name: website
+  name: website-prod
   labels:
-    app: website
+    app: website-prod
 spec:
   type: ClusterIP
   selector:
-    app: website
+    app: website-prod
   ports:
     - protocol: TCP
       name: http
@@ -44,8 +44,15 @@ metadata:
   name: website
   labels:
     app: website
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
 spec:
-  ingressClassName: caddy
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - www.cloudunpacked.com
+    - cloudunpacked.com
+    secretName: website-prod-tls
   rules:
   - host: www.cloudunpacked.com
     http:
