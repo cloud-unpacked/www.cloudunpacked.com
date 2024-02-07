@@ -61,7 +61,7 @@ spec:
         path: "/"
         backend:
           service:
-            name: website
+            name: website-prod
             port:
               number: 80
   - host: cloudunpacked.com
@@ -71,6 +71,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: website
+            name: website-prod
             port:
               number: 80
